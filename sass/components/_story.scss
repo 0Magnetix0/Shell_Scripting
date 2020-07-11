@@ -1,0 +1,59 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem $color-shadow;
+  border-radius: 3px;
+  padding: 6rem 6rem 6rem 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+  background-color: rgba($color-white, .75);
+
+  &__shape {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    /* This is very very important took me 1 hr to find this error */
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translate(-3rem) skewX(12deg);
+  }
+
+  &__image {
+    height: 100%;
+    transform: translate(-3rem) skewX(0) scale(1.4);
+    transition: all .5s;
+    backface-visibility: visible;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , 30%);
+    color: $color-white;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &:hover &__image {
+    transform: translate(-3rem) skewX(0) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

@@ -1,0 +1,39 @@
+.header {
+  /* keeping the position of the header fixed according to the body */
+  position: relative;
+  /* height of the header set to the page. */
+  height: 95vh;
+  /* Background with gradient color on top. */
+  background-image: linear-gradient(to right top ,$color-primary, $color-primary-light) ,url('../img/hero.jpg');
+  /* Image cover over the header. */
+  background-size: cover;
+  /* To fix one of the sides of the background to the web-page */
+  background-position: top;
+  /* This is used to make that weird shape of the header. */
+  clip-path: polygon(0 0 , 100% 0, 100% 80%, 0 100%);
+  @include respond(phone) {
+    clip-path: polygon(0 0 , 100% 0, 100% 85%, 0 100%);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    /* setting up one dimension sets the other one automatically. */
+    height: 3.5rem;
+  }
+  /* This is for positioning the text over the center. */
+  &__text-box {
+    /* This is with respect to the parent block. */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* This is with respect to itself. */
+    transform: translate(-50%, -50%);
+    /* This is for aligning the buttom at the center. */
+    text-align: center;
+  }
+}
